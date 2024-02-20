@@ -1,12 +1,19 @@
 import { config } from "../../devdash_config";
 
 export function Dashboard() {
-  const title = '_DevDash'
+	const title = "DevDash_";
 
-  const widgets = config.widgets.map((widget) => widget.repository_url)
-
-  return <div>
-    <h1>{title}</h1>;
-    {widgets}
-  </div>
-}
+	return (
+		<>
+			<head>
+				<h1>{title}</h1>
+			</head>
+			<section>
+				<ul>
+					{config.widgets.map((widget) => (
+						<li key={widget.id}>{widget.repository_url}</li>
+					))}
+				</ul>
+			</section>
+		</>
+	);
