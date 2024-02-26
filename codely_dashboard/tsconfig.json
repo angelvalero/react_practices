@@ -6,7 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
-    "types": ["cypress"],
+    "types": [
+      "cypress",
+      "vite-plugin-svgr/client"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
