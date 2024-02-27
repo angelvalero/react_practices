@@ -1,43 +1,3 @@
-:root {
-  --header-height: 6.25rem;
-}
-
-.header {
-  height: var(--header-height);
-  background-color: #1a2233;
-
-  &__container {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-}
-
-.empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - var(--header-height));
-  font-size: 1.5rem;
-}
-
-.app__brand {
-  color: #3cff64;
-  font-style: italic;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
 .widget {
   display: flex;
   flex-direction: column;
@@ -75,15 +35,6 @@
   &__body {
     flex: 1;
     padding: 0.5rem;
-  }
-
-  &__description {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
   }
 
   &__footer {
