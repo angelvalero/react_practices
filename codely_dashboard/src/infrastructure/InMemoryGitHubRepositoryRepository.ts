@@ -1,6 +1,6 @@
-import { GitHubRepository } from "../domain/GitHubRepository";
+import { GitHubRepository, RepositoryId } from "../domain/GitHubRepository";
 import { GitHubRepositoryRepository } from "../domain/GitHubRepositoryRepository";
-import { githubApiResponses } from "../sections/dashboard/github_api_responses";
+import { githubApiResponses } from "../github_api_responses";
 
 export class InMemoryGitHubRepositoryRepository implements GitHubRepositoryRepository {
   async search(): Promise<GitHubRepository[]> {
@@ -25,8 +25,28 @@ export class InMemoryGitHubRepositoryRepository implements GitHubRepositoryRepos
           forks: repositoryData.forks_count,
           issues: repositoryData.open_issues_count,
           pullRequests: pullRequests.length,
+          workflowRunsStatus: ciStatus.workflow_runs.map((run) => ({
+            id: run.id,
+            name: run.name,
+            title: run.display_title,
+            url: run.html_url,
+            createdAt: new Date(run.created_at),
+            status: run.status,
+            conclusion: run.conclusion,
+          })),
         };
       })
+    );
+  }
+
+  async byId(repositoryId: RepositoryId): Promise<GitHubRepository | undefined> {
+    const repositories = await this.search();
+
+    return repositories.find(
+      (repositories) =>
+        repositories.id.name === repositoryId.name &&
+        repositories.id.organization &&
+        repositoryId.organization
     );
   }
 }
