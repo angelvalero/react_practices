@@ -6,13 +6,13 @@ import Lock from "../../assets/svgs/lock.svg?react";
 import Unlock from "../../assets/svgs/unlock.svg?react";
 import { GitHubRepositoryRepository } from "../../domain/GitHubRepositoryRepository";
 import styles from "./GitHubRepositoryDetail.module.scss";
-import { useGitHubRepository } from "./useGithubRepository";
+import { useGitHubRepositories } from "./useGithubRepository";
 
 export function GitHubRepositoryDetail({ repository }: { repository: GitHubRepositoryRepository }) {
   const { organization, name } = useParams() as { organization: string; name: string };
 
   const repositoryId = useMemo(() => ({ name, organization }), [name, organization]);
-  const { repositoryData } = useGitHubRepository(repository, repositoryId);
+  const { repositoryData } = useGitHubRepositories(repository, repositoryId);
 
   if (!repositoryData) {
     return <></>;
