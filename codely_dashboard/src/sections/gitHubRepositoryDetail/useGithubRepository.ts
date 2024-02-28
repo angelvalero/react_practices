@@ -1,26 +1,22 @@
 /* eslint-disable prettier/prettier */
 import { useEffect, useState } from "react";
 
-import { GitHubRepository } from "../../domain/GitHubRepository";
+import { GitHubRepository, RepositoryId } from "../../domain/GitHubRepository";
 import { GitHubRepositoryRepository } from "../../domain/GitHubRepositoryRepository";
 
-export function useGitHubRepositories(
+export function useGitHubRepository(
   repository: GitHubRepositoryRepository,
-  repositoryUrls: string[]
+  repositoryId: RepositoryId
 ): {
-  repositoryData: GitHubRepository[];
-  isLoading: boolean;
+  repositoryData: GitHubRepository | undefined;
 } {
-  const [repositoryData, setRepositoryData] = useState<GitHubRepository[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [repositoryData, setRepositoryData] = useState<GitHubRepository>();
 
   useEffect(() => {
-    setIsLoading(true);
-    repository.search(repositoryUrls).then((repositoryData) => {
+    repository.byId(repositoryId).then((repositoryData) => {
       setRepositoryData(repositoryData);
-      setIsLoading(false);
     });
-  }, [repository, repositoryUrls]);
+  }, [repository, repositoryId]);
 
-  return { repositoryData, isLoading };
+  return { repositoryData };
 }

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { GitHubRepository, RepositoryId } from "../domain/GitHubRepository";
 import { GitHubRepositoryRepository } from "../domain/GitHubRepositoryRepository";
 import { CiStatus, PullRequest, RepositoryData } from "./GitHubApiResponse";

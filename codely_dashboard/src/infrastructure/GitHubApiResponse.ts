@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 interface Permissions {
   admin: boolean;
   maintain: boolean;
