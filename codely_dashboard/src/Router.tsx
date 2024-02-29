@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { DashboardFactory } from "./sections/dashboard/DashboardFactory";
@@ -12,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: DashboardFactory.create(),
+        element: <DashboardFactory />,
       },
       {
         path: "/repository/:organization/:name",
@@ -24,5 +23,4 @@ const router = createBrowserRouter([
 
 export function Router() {
   return <RouterProvider router={router} />;
-
 }
