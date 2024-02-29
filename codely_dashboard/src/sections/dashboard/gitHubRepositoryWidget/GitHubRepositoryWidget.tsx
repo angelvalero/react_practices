@@ -1,15 +1,16 @@
-/* eslint-disable prettier/prettier */
-import Check from "../../assets/svgs/check.svg?react";
-import Error from "../../assets/svgs/error.svg?react";
-import PullRequests from "../../assets/svgs/git-pull-request.svg?react";
-import IssueOpened from "../../assets/svgs/issue-opened.svg?react";
-import Lock from "../../assets/svgs/lock.svg?react";
-import Forks from "../../assets/svgs/repo-forked.svg?react";
-import Start from "../../assets/svgs/star.svg?react";
-import Unlock from "../../assets/svgs/unlock.svg?react";
-import Watchers from "../../assets/svgs/watchers.svg?react";
-import { GitHubRepository } from "../../domain/GitHubRepository";
-import styles from "./GitHubRepositoryWidget.module.scss";
+import { Link } from "react-router-dom";
+
+import Check from "../../../assets/svgs/check.svg?react";
+import Error from "../../../assets/svgs/error.svg?react";
+import PullRequests from "../../../assets/svgs/git-pull-request.svg?react";
+import IssueOpened from "../../../assets/svgs/issue-opened.svg?react";
+import Lock from "../../../assets/svgs/lock.svg?react";
+import Forks from "../../../assets/svgs/repo-forked.svg?react";
+import Start from "../../../assets/svgs/star.svg?react";
+import Unlock from "../../../assets/svgs/unlock.svg?react";
+import Watchers from "../../../assets/svgs/watchers.svg?react";
+import { GitHubRepository } from "../../../domain/GitHubRepository";
+import styles from "../repositoryWidget/RepositoryWidget.module.scss";
 
 const isoToReadableDate = (lastUpdateDate: Date): string => {
   const currentDate = new Date();
@@ -32,14 +33,9 @@ export function GitHubRepositoryWidget({ repository }: { repository: GitHubRepos
     <article className={styles.widget}>
       <header className={styles.widget__header}>
         <h2 className={styles.widget__title}>
-          <a
-            href={`/repository/${repository.id.organization}/${repository.id.name}`}
-            target="_blank"
-            title={`${repository.id.organization}/${repository.id.name}`}
-            rel="noreferrer"
-          >
+          <Link to={`/repository/${repository.id.organization}/${repository.id.name}`}>
             {repository.id.organization}/{repository.id.name}
-          </a>
+          </Link>
         </h2>
         {repository.private ? <Lock /> : <Unlock />}
       </header>

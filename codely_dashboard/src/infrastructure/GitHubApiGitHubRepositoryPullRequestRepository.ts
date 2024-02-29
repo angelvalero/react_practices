@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { RepositoryId } from "../domain/GitHubRepository";
 import { GitHubRepositoryPullRequest } from "../domain/GitHubRepositoryPullRequest";
 import { GitHubRepositoryPullRequestRepository } from "../domain/GitHubRepositoryPullRequestRepository";

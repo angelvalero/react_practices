@@ -1,14 +1,13 @@
-/* eslint-disable prettier/prettier */
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-import PullRequests from "../../assets/svgs/git-pull-request.svg?react";
-import IssueOpened from "../../assets/svgs/issue-opened.svg?react";
-import Forks from "../../assets/svgs/repo-forked.svg?react";
-import Start from "../../assets/svgs/star.svg?react";
-import Watchers from "../../assets/svgs/watchers.svg?react";
-import styles from "./GitHubRepositoryWidget.module.scss";
+import PullRequests from "../../../assets/svgs/git-pull-request.svg?react";
+import IssueOpened from "../../../assets/svgs/issue-opened.svg?react";
+import Forks from "../../../assets/svgs/repo-forked.svg?react";
+import Start from "../../../assets/svgs/star.svg?react";
+import Watchers from "../../../assets/svgs/watchers.svg?react";
+import styles from "./RepositoryWidget.module.scss";
 
-function WidgetSkeleton() {
+function RepositoryWidgetSkeleton() {
   return (
     <article className={styles.widget}>
       <header
@@ -61,11 +60,11 @@ function WidgetSkeleton() {
   );
 }
 
-export function WidgetsSkeleton({ numberOfWidgets }: { numberOfWidgets: number }) {
+export function RepositoryWidgetsSkeleton({ numberOfWidgets }: { numberOfWidgets: number }) {
   return (
     <SkeletonTheme baseColor="#1A2233" highlightColor="#535966">
       {[...new Array(numberOfWidgets)].map((_, i) => (
-        <WidgetSkeleton key={i} />
+        <RepositoryWidgetSkeleton key={i} />
       ))}
     </SkeletonTheme>
   );

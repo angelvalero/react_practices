@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface Permissions {
   admin: boolean;
   maintain: boolean;
