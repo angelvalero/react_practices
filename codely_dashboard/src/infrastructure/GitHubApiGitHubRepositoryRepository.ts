@@ -46,7 +46,7 @@ export class GitHubApiGitHubRepositoryRepository implements GitHubRepositoryRepo
         return {
           id: {
             name: repositoryData.name,
-            organization: repositoryData.organization.login,
+            organization: repositoryData.owner.login,
           },
           url: repositoryData.html_url,
           description: repositoryData.description,
