@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { GitHubAccessTokenRepository } from "../domain/GitHubAccessTokenRepository";
 
 export class LocalStorageGitHubAccessTokenRepository implements GitHubAccessTokenRepository {
