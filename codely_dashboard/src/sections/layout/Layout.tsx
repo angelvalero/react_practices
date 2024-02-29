@@ -1,19 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { Link, Outlet } from "react-router-dom";
-import TopBarProgress from "react-topbar-progress-indicator";
 
 import Brand from "./brand.svg?react";
 import { ErrorBoundary } from "./ErrorBoundary";
 import styles from "./Layout.module.scss";
 import TopBarProgressByLocation from "./TopBarProgressByLocation";
-
-TopBarProgress.config({
-  barColors: {
-    "0": "#fff",
-    "1.0": "#3cff64",
-  },
-  shadowBlur: 5,
-});
 
 export function Layout() {
   return (
@@ -21,11 +12,17 @@ export function Layout() {
       <TopBarProgressByLocation />
       <header className={styles.header}>
         <section className={styles.header__container}>
-          <a href="https://codely.com">
-            <Brand />
-          </a>
-          <Link to={`/`}>
-            <h1 className={styles.app__brand}>DevDash_</h1>
+          <div className={styles.brand__container}>
+            <a href="https://codely.com">
+              <Brand />
+            </a>
+            <Link to="/">
+              <h1 className={styles.app__brand}>DevDash_</h1>
+            </Link>
+          </div>
+
+          <Link to="/config">
+            <span>⚙️</span>
           </Link>
         </section>
       </header>
